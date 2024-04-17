@@ -16,11 +16,15 @@ $ forge build
 
 ### Test
 
+```shell
+$ forge test
+```
+
 Simulate Sepolia chain using anvil
 
 ```shell
-$ forge test
-$ forge test --fork-url <rpc_url>
+$ forge test --fork-url $SEPOLIA_URL
+
 $ forge test --mt <function> -vvvvv --fork-url <rpc_url>
 ```
 
