@@ -6,14 +6,6 @@ import {Test, console} from "forge-std/Test.sol";
 import {FundMe} from "../src/FundMe.sol";
 import {DeployFundMe} from "../script/DeployFundMe.s.sol";
 
-// chisel, Solidity in terminal
-// forge inspect <contract> storageLayout, Check storage slots of variables
-// forge snapshot, Gas snapshots of test functions
-
-// forge test --fork-url $SEPOLIA_URL, Simulate Sepolia chain using anvil
-// forge test --mt <function> -vvvvv --fork-url $SEPOLIA_URL
-// forge coverage --fork-url/--rpc-url $SEPOLIA_URL, See how much of the contract is being tested
-
 contract FundMeTest is Test {
     FundMe fundMe;
 

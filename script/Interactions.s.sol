@@ -5,8 +5,6 @@ import {Script, console} from "forge-std/Script.sol";
 import {DevOpsTools} from "foundry-devops/src/DevOpsTools.sol";
 import {FundMe} from "../src/FundMe.sol";
 
-// forge script script/Interactions.s.sol:<contract>
-
 contract FundFundMe is Script {
     uint256 constant SEND_VALUE = 0.01 ether;
 
