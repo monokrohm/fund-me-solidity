@@ -47,13 +47,13 @@ contract FundMeTest is Test {
 
     function testNotEnoughEth() public {
         // Cheatcode
-        vm.expectRevert(); // Next TX/non-vm cheatcode is expected to revert/fail
+        vm.expectRevert(); // On next TX/non-vm cheatcode is expected to revert/fail
         fundMe.fund(); // 0 ETH is sent
     }
 
     function testFundedDataStructureUpdates() public {
         // Cheatcode
-        vm.startPrank(USER); // Next TX will be sent by USER
+        vm.startPrank(USER); // On next TX will be sent by USER
         fundMe.fund{value: SEND_VALUE}();
         vm.stopPrank();
 
@@ -81,17 +81,9 @@ contract FundMeTest is Test {
         uint256 startingOwnerBalance = fundMe.getOwner().balance;
         uint256 startingFundMeBalance = address(fundMe).balance;
 
-        // Tells you how much gas is left in the TX call, built in to solidity
-        // uint256 gasStart = gasleft();
-        // Simulate with gas price
-        // vm.txGasPrice(GAS_PRICE); // Sets the gas price for the rest of the TX
         vm.startPrank(fundMe.getOwner());
         fundMe.withdraw();
         vm.stopPrank();
-
-        // uint256 gasEnd = gasleft();
-        // uint256 gasUsed = (gasStart - gasEnd) * tx.gasprice; //Built in to solidity
-        // console.log(gasUsed);
 
         uint256 endingOwnerBalance = fundMe.getOwner().balance;
         uint256 endingFundMeBalance = address(fundMe).balance;

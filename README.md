@@ -2,7 +2,7 @@
 
 ```
 git clone https://github.com/monokrohm/fund-me-solidity.git
-cd foundry-fund-me-f23
+cd fund-me-solidity
 forge build
 ```
 
@@ -20,6 +20,7 @@ $ forge build
 $ forge test
 ```
 
+<b></b>  
 Simulate Sepolia chain using anvil
 
 ```shell
@@ -70,13 +71,14 @@ $ forge script script/DeployFundMe.s.sol --rpc-url <rpc_url> --private-key <your
 
 ### Scripts
 
-Run scripts after deploying to a testnet or loacal net
+Run scripts after deploying to a testnet or local net
 
 ```shell
 $ cast send <FUNDME_CONTRACT_ADDRESS> "fund()" --value 0.1ether --private-key <PRIVATE_KEY>
 ```
 
-Run specific contract in a script
+<b></b>  
+Run a specific contract in a script
 
 ```shell
 $ forge script script/Interactions.s.sol:FundFundMe --rpc-url <rpc_url>  --private-key <your_private_key>  --broadcast

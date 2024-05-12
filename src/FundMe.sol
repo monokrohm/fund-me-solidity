@@ -10,8 +10,8 @@ contract FundMe {
     // Allows any uint256 to use library
     using PriceConverter for uint256;
 
-    // Match with msg.value which is 18 places, constant saves gas
-    uint256 public constant MIN_USD = 5e18; // $5
+    // 'constant' saves gas
+    uint256 public constant MIN_USD = 5e18; // $5, 18 decimals
 
     // 'immutable' for outside where the variable is declared
     address public immutable i_owner;
@@ -77,14 +77,6 @@ contract FundMe {
         // Reset array
         s_funders = new address[](0);
 
-        // transfer() throws error above 2300 gas, auto revert
-        // payable(msg.sender).transfer(address(this).balance);
-
-        // send() returns bool above 2300 gas, needs require statement to revert
-        // bool sendSuccess = payable(msg.sender).send(address(this).balance);
-        // require(sendSuccess, "Send failed");
-
-        // call() can call any function in ethereum without needing ABI, no gas limit, returns bool
         (bool callSuccess, ) = payable(msg.sender).call{
             value: address(this).balance
         }("");
